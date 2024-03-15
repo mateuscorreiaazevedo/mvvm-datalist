@@ -1,23 +1,13 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
-import { env } from '@/config'
-
-type HttpRequest = {
-  url: string
-  data?: any
-  headers?: any
-  params?: any
-  method?: 'get' | 'post' | 'put' | 'delete'
-}
-
-type HttpResponse<T> = {
-  statusCode: number
-  body?: T
-}
+import { env } from '@/modules/core'
 
 export class Service {
   private api: AxiosInstance
 
-  constructor(private readonly baseURL: string = env.baseUrl) {
+  constructor(
+    private readonly baseURL: string = env.baseUrl ??
+      `${window.location.protocol}//${window.location.host}/api`
+  ) {
     this.api = axios.create({
       baseURL: this.baseURL
     })

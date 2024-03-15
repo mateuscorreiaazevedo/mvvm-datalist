@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/contexts/commons'
+import { ThemeProvider } from '@/modules/core'
 import { Montserrat } from 'next/font/google'
 import '../assets/styles/globals.css'
 import { ReactNode } from 'react'
