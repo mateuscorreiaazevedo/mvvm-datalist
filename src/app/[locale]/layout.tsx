@@ -1,7 +1,7 @@
-import { ThemeProvider, TranslateProvider } from '@/modules/core'
-import '../../assets/styles/globals.css'
+import { GlobalProvider } from '@/modules/core'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
+import '../../assets/styles/globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,9 +24,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
       <body
         className={`${inter.variable} min-h-screen w-full bg-background font-sans font-medium text-text transition-colors`}
       >
-        <TranslateProvider locale={params?.locale as string}>
-          <ThemeProvider>{children}</ThemeProvider>
-        </TranslateProvider>
+        <GlobalProvider locale={params?.locale}>{children}</GlobalProvider>
       </body>
     </html>
   )
