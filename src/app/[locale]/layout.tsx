@@ -1,17 +1,17 @@
-import { ThemeProvider } from '@/modules/core'
-import { Montserrat } from 'next/font/google'
+import { ThemeProvider, TranslateProvider } from '@/modules/core'
 import '../../assets/styles/globals.css'
+import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-inter',
   fallback: ['sans serif'],
 })
 
 export const metadata = {
-  title: 'Next setup',
-  description: 'My boilerplate using Next.js 13. Powered by Mateus Azevedo',
+  title: 'Data list',
+  description: 'My App of data list using Next.js 14. Powered by Mateus Azevedo',
 }
 
 type RootLayoutProps = UrlProps & {
@@ -22,9 +22,11 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <html lang={params?.locale}>
       <body
-        className={`${montserrat.variable} min-h-screen w-full bg-background font-medium text-primary`}
+        className={`${inter.variable} min-h-screen w-full bg-background font-sans font-medium text-text transition-colors`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <TranslateProvider locale={params?.locale as string}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </TranslateProvider>
       </body>
     </html>
   )
