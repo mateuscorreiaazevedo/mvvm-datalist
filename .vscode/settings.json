@@ -3,7 +3,6 @@
   "editor.inlineSuggest.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "always",
   },
   "search.showLineNumbers": false,
   "workbench.editor.enablePreview": false,

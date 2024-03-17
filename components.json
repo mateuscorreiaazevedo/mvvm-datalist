@@ -12,6 +12,6 @@
   },
   "aliases": {
     "components": "@/components",
-    "utils": "@/modules/core/configs/shadcn.ts"
+    "utils": "@/modules/core"
   }
 }

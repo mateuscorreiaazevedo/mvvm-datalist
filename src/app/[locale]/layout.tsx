@@ -20,7 +20,10 @@ type RootLayoutProps = UrlProps & {
 
 export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
-    <html lang={params?.locale}>
+    <html
+      lang={params?.locale}
+      className="scrollbar-thin scrollbar-track-muted scrollbar-thumb-muted scrollbar-corner-muted"
+    >
       <body
         className={`${inter.variable} min-h-screen w-full bg-background font-sans font-medium text-text transition-colors`}
       >
