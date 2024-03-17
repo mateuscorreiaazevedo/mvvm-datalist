@@ -8,11 +8,11 @@ const header = {
     },
     dropdownMenu: {
       selectTheme: {
-        title: 'Alterar tema',
+        title: 'Change theme',
         label: {
-          dark: 'Tema escuro',
-          light: 'Tema Claro',
-          system: 'Sistema',
+          dark: 'Dark theme',
+          light: 'Light theme',
+          system: 'System theme',
         },
         icon: {
           light: 'Sun',
@@ -20,7 +20,7 @@ const header = {
         },
       },
       selectLocale: {
-        title: 'Alterar idioma',
+        title: 'Change Language',
         icon: 'Languages',
         label: {
           'pt-br': 'Português/BR',
@@ -28,7 +28,7 @@ const header = {
         },
       },
       logout: {
-        label: 'Sair',
+        label: 'Logout',
         icon: 'DoorOpen',
       },
     },
@@ -36,19 +36,19 @@ const header = {
   tabs: {
     links: {
       uploads: {
-        label: 'Envios',
+        label: 'Uploads',
         icon: 'ListVideo',
       },
       tags: {
-        label: 'Etiquetas',
+        label: 'Tags',
         icon: 'Tags',
       },
       settings: {
-        label: 'Configurações',
+        label: 'Settings',
         icon: 'Settings',
       },
       developers: {
-        label: 'Desenvolvedores',
+        label: 'Developers',
         icon: 'CodeXml',
       },
     },
@@ -56,7 +56,7 @@ const header = {
 }
 
 const footer = {
-  powered: 'Desenvolvido por:',
+  powered: 'Powered by:',
   me: 'Mateus Azevedo',
   copy: '&copy; - {year}',
 }

@@ -44,19 +44,23 @@ class ServerError extends Error {
   }
 }
 
+type BaseErrors =
+  | ServerError
+  | ForbiddenError
+  | BadRequestError
+  | NotFoundError
+  | UnauthorizeError
+  | UnprocessableEntityError
+
 export function baseErrors(status: number, errorMessage: string, errorType?: string) {
-  switch (status) {
-    case 400:
-      throw new BadRequestError(errorMessage, errorType)
-    case 401:
-      throw new UnauthorizeError(errorMessage, errorType)
-    case 403:
-      throw new ForbiddenError(errorMessage, errorType)
-    case 404:
-      throw new NotFoundError(errorMessage, errorType)
-    case 422:
-      throw new UnprocessableEntityError(errorMessage, errorType)
-    default:
-      throw new ServerError()
+  const errors: Record<number, BaseErrors> = {
+    400: new BadRequestError(errorMessage, errorType),
+    401: new UnauthorizeError(errorMessage, errorType),
+    403: new ForbiddenError(errorMessage, errorType),
+    404: new NotFoundError(errorMessage, errorType),
+    422: new UnprocessableEntityError(errorMessage, errorType),
+    500: new ServerError(),
   }
+
+  throw errors[status] ?? new ServerError()
 }

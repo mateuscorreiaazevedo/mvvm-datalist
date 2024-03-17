@@ -1,8 +1,10 @@
 import { useFallbackName } from '@/modules/core/hooks/use-fallback-name'
+import { useTranslationsHeader } from '@/modules/core/hooks/use-translations-header'
 import { useState } from 'react'
 
 export function useDrodpdownMenu() {
   const [open, setOpen] = useState<boolean>(false)
+  const { header } = useTranslationsHeader()
 
   const user = {
     name: 'John Doe',
@@ -17,5 +19,6 @@ export function useDrodpdownMenu() {
       ...user,
       fallback: useFallbackName(user.name),
     },
+    logout: header.nav.dropdownMenu.logout,
   }
 }

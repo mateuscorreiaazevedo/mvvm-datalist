@@ -9,7 +9,7 @@ import { Icon } from '@/components/ui/icon'
 import { DropdownSelectThemeViewProps } from '../types/select-theme.types'
 
 export function DropdownSelectThemeView(props: DropdownSelectThemeViewProps) {
-  const { setTheme, themes, title } = props
+  const { setTheme, themes, title, icon } = props
 
   return (
     <DropdownMenuGroup>
@@ -17,11 +17,11 @@ export function DropdownSelectThemeView(props: DropdownSelectThemeViewProps) {
         <DropdownMenuSubTrigger>
           <span className="relative mr-2">
             <Icon
-              name="Sun"
+              name={icon.light}
               className="size-4 font-light opacity-100 dark:opacity-0"
             />
             <Icon
-              name="Moon"
+              name={icon.dark}
               className="absolute top-0 size-4 font-light opacity-0 dark:opacity-100"
             />
           </span>

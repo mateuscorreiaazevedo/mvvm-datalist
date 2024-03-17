@@ -1,11 +1,12 @@
 import createMiddleware from 'next-intl/middleware'
+import { LocaleEnum } from './modules/core'
 
 export default createMiddleware({
-  locales: ['pt-br'],
+  locales: [LocaleEnum.PT_BR, LocaleEnum.EN],
 
-  defaultLocale: 'pt-br',
+  defaultLocale: LocaleEnum.PT_BR,
 })
 
 export const config = {
-  matcher: ['/', '/(pt-br)/:path*'],
+  matcher: ['/', '/(pt-br|en)/:path*'],
 }

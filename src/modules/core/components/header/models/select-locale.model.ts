@@ -1,20 +1,24 @@
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslationsHeader } from '@/modules/core/hooks/use-translations-header'
+import { LocaleEnum } from '@/modules/core/utils/enums/locales'
+import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 
 export const useDropdownSelectLocaleModel = () => {
-  const t = useTranslations('common.header.nav.dropdownMenu.selectLocale')
+  const { header } = useTranslationsHeader()
+  const { label, title, icon } = header.nav.dropdownMenu.selectLocale
+
   const router = useRouter()
   const pathName = usePathname()
   const locale = useLocale()
 
   const locales: Option[] = [
     {
-      value: 'pt-br',
-      label: t('label.pt-br'),
+      value: LocaleEnum.PT_BR,
+      label: label['pt-br'],
     },
     {
-      value: 'en',
-      label: t('label.en'),
+      value: LocaleEnum.EN,
+      label: label.en,
     },
   ]
 
@@ -25,7 +29,10 @@ export const useDropdownSelectLocaleModel = () => {
   }
 
   return {
-    title: t('title'),
+    constants: {
+      title,
+      icon,
+    },
     setLocale,
     locales,
   }

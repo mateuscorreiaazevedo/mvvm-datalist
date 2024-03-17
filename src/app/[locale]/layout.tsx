@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Data list',
+  title: 'Nivo',
   description: 'My App of data list using Next.js 14. Powered by Mateus Azevedo',
 }
 
@@ -22,7 +22,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <html
       lang={params?.locale}
-      className="scrollbar-thin scrollbar-track-muted scrollbar-thumb-muted scrollbar-corner-muted"
+      className="scrollbar-thin scrollbar-track-muted scrollbar-thumb-primary scrollbar-corner-muted"
     >
       <body
         className={`${inter.variable} min-h-screen w-full bg-background font-sans font-medium text-text transition-colors`}

@@ -15,7 +15,7 @@ import { DropdownSelectTheme } from '../select-theme'
 import { DropdownSelectLocale } from '../select-locale'
 
 export function DropdownMenuView(props: HeaderNavDropdownMenuViewProps) {
-  const { open, setOpen, user } = props
+  const { open, setOpen, user, logout } = props
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
@@ -38,12 +38,15 @@ export function DropdownMenuView(props: HeaderNavDropdownMenuViewProps) {
           />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40" align="end" sideOffset={4}>
+      <DropdownMenuContent className="w-full" align="end" sideOffset={4}>
         <DropdownSelectTheme />
         <DropdownMenuSeparator />
         <DropdownSelectLocale />
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Sair</DropdownMenuItem>
+        <DropdownMenuItem>
+          <Icon name={logout.icon} className="mr-2 size-4" />
+          {logout.label}
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
