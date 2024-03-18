@@ -9,7 +9,7 @@ export class Service {
       `${window.location.protocol}//${window.location.host}/api`
   ) {
     this.api = axios.create({
-      baseURL: this.baseURL
+      baseURL: this.baseURL,
     })
   }
 
@@ -23,7 +23,7 @@ export class Service {
         method,
         data,
         params,
-        headers
+        headers,
       })
     } catch (error) {
       response = (error as any).response
@@ -31,7 +31,7 @@ export class Service {
 
     return {
       statusCode: response.status,
-      body: response.data
+      body: response.data,
     }
   }
 }
